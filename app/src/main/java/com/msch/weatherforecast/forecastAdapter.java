@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class forecastAdapter extends RecyclerView.Adapter<forecastAdapter.ForecastViewHolder> {
-    private ArrayList<forecast_item> mForecastList;
+    private ArrayList <WeatherDay> mForecastList;
 
     public static class ForecastViewHolder extends RecyclerView.ViewHolder {
         public TextView mTvDay;
@@ -24,7 +24,7 @@ public class forecastAdapter extends RecyclerView.Adapter<forecastAdapter.Foreca
             mTvTemp = itemView.findViewById(R.id.tvTemperature);
         }
     }
-    public forecastAdapter(ArrayList<forecast_item> forecastList) {
+    public forecastAdapter(ArrayList <WeatherDay> forecastList) {
         mForecastList = forecastList;
     }
 
@@ -38,11 +38,11 @@ public class forecastAdapter extends RecyclerView.Adapter<forecastAdapter.Foreca
 
     @Override
     public void onBindViewHolder(@NonNull ForecastViewHolder holder, int position) {
-        forecast_item currentItem = mForecastList.get(position);
+        WeatherDay currentItem = mForecastList.get(position);
 
-        holder.mTvDay.setText(currentItem.getDay());
+        holder.mTvDay.setText(currentItem.getTempMin());
         holder.mTvDate.setText(currentItem.getDate());
-        holder.mTvTemp.setText(currentItem.getTemp());
+        holder.mTvTemp.setText(currentItem.getTempWithDegree());
 
     }
 
